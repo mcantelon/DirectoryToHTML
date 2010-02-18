@@ -1,0 +1,13 @@
+<html>
+<body>
+
+<?php if ($directory->relative_path) { ?>
+  <a href='?dir=<?php print $directory->parent_relative_path ?>'><img src="images/backarrow.gif" border="0" /></a>
+<?php } ?>
+
+<img src="images/folder-icon.png" /> <?php print ($directory->relative_path) ? $directory->relative_path : '[top]'; ?><br />
+
+<?php print $directory->as_html(); ?>
+
+</html>
+</body>
