@@ -209,7 +209,7 @@ class DirectoryToHTML {
     foreach($initial_state as $relative_path => $state) {
 
       if ($state) {
-        $this->state[$this->_normalize_path($this->start_path) .'/'. $relative_path] = TRUE;
+        $this->state[$this->_normalize_path($this->base_path) .'/'. $relative_path] = TRUE;
       }
     }
   }
