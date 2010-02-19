@@ -56,7 +56,31 @@ class DirectoryToHTML {
         : TRUE;
     }
 
-    return $directory_array;
+    return $this->_natural_sort_of_directory_array($directory_array);
+  }
+
+  private function _natural_sort_of_directory_array($directory_array) {
+
+    // put entry names into an array so we can natural sort (which sorts using array value)
+    $entry_names = array();
+
+    foreach($directory_array as $entry => $data) {
+
+      $entry_names[$entry] = $entry;
+    }
+
+    // do natural sort of entry names
+    natsort($entry_names);
+
+    // go through nodes finding nodes that match filename and put into new array
+    $sorted_directory_array = array();
+
+    foreach($entry_names as $entry) {
+
+      $sorted_directory_array[$entry] = $directory_array[$entry];
+    }
+
+    return $sorted_directory_array;
   }
 
   function directory_as_array($directory) {
