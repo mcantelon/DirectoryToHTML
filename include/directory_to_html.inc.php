@@ -90,9 +90,11 @@ class DirectoryToHTML {
     foreach($directory_array as $entry => $data) {
 
       // context is sent to tag replacement functions
+      $relative_path_to_entry = ($this->relative_path) ? $this->relative_path .'/' : '';
+
       $context = array(
         'entry' => $entry,
-        'path' => $this->relative_path .'/'. $current_path
+        'path' => $relative_path_to_entry
       );
 
       if ($data['type'] == 'directory') {
