@@ -53,7 +53,7 @@ class DirectoryToHTML {
       // traverse directory if it's not set to be closed
       $directory_array[$entry]['children'] = (is_dir($absolute_path) && $this->_directory_should_be_traversed($absolute_path))
         ? $this->directory_tree_as_array($absolute_path, $current_depth + 1)
-        : TRUE;
+        : FALSE;
     }
 
     return $this->_natural_sort_of_directory_array($directory_array);
